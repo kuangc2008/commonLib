@@ -1,4 +1,4 @@
-package com.example.commonlibactivity
+package com.kc.commonlibactivity
 
 import org.junit.Test
 

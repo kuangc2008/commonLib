@@ -1,2 +1,3 @@
 rootProject.name='CommonLibActivity'
 include ':app'
+include ':uiwatch'

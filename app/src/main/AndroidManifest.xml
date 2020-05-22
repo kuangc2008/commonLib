@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.commonlibactivity">
+    package="com.kc.commonlibactivity">
 
     <application
         android:allowBackup="true"

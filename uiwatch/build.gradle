@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+//
+//ext {
+//    // 刚刚创建的仓库名
+//    bintrayRepo = 'commonlib'
+//    // package的名字
+//    bintrayName = 'uiwatch2'
+//
+//    // owner的groupID
+//    publishedGroupId = 'com.kc'
+//    libraryName = 'Uiwatch'
+//    artifact = 'uiwatch'
+//
+//    libraryDescription = 'kuangcheng common lib'
+//
+//    siteUrl = 'https://github.com/kuangc2008/commonLib'
+//    gitUrl = 'https://github.com/kuangc2008/commonLib.git'
+//
+//    libraryVersion = '0.0.1'
+//
+//    developerId = 'kuangc2008'
+//    developerName = 'kuangcheng'
+//    developerEmail = 'hikuangc@gmail.com'
+//
+//    licenseName = 'The MIT License'
+//    licenseUrl = 'https://rem.mit-license.org'
+//    allLicenses = ["MIT"]
+//}
+
+
+publish {
+    userOrg = 'kuangc2008'                 //bintray注册的用户名
+    groupId = 'com.kc'           //compile引用时的第1部分
+    artifactId = 'uiwatcher2'                      //compile引用时的第2部分
+    //总体引用后为 compile 'com.github.sunrise:Test:1.0.0'
+
+    publishVersion = '1.0.0'                 //版本号
+    repoName = "commonlib"          //你要上传至bintray仓库的名称，如果仓库名称是maven可忽略
+
+    desc = 'kuang library'               //描述
+    website = 'https://github.com/kuangc2008/commonLib'            //网站
+}
+
